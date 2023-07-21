@@ -7,7 +7,7 @@ users = []
 
 @app.route('/signup',methods=['POST'])
 def register_user():
-    global registered_users
+   
     data = request.get_json()
     print(data['email'])
     
@@ -20,9 +20,9 @@ def get_registered_users():
     data = request.get_json()
     for  i in users :
        if data['email'] == i :
-           return jsonify({"registered_users": registered_users}),200
+           return jsonify({"message":"User Found"}),200
    
-    return  jsonify({"registered_users": registered_users}),205      
+    return  jsonify({"message":"User Not Found"}),205      
     
 
 if __name__ == '__main__':
